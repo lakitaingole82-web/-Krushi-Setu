@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#ffffff;
+}
+
+/* Login Container */
+
+.container{
+    width:400px;
+    background:#ffffff;
+    padding:40px;
+
+    border-radius:20px;
+
+    border:2px solid #22c55e;
+
+    box-shadow:0 10px 25px rgba(34,197,94,0.2);
+
+    text-align:center;
+
+    transition:0.3s ease;
+}
+
+.container:hover{
+    transform:translateY(-5px);
+}
+
+/* Logo */
+
+.logo{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+/* Heading */
+
+.container h1{
+    color:#16a34a;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#6b7280;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+/* Input Fields */
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px 15px;
+
+    border:1px solid #22c55e;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:25px;
+
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:#16a34a;
+    box-shadow:0 0 10px rgba(34,197,94,0.3);
+}
+
+/* Forgot Password */
+
+.forgot{
+    text-align:right;
+    margin-bottom:20px;
+}
+
+.forgot a{
+    text-decoration:none;
+    color:#16a34a;
+    font-size:14px;
+}
+
+.forgot a:hover{
+    text-decoration:underline;
+}
+
+/* Login Button */
+
+.login-btn{
+    width:100%;
+    padding:22px;
+
+    background:#22c55e;
+    color:white;
+
+    border:none;
+    border-radius:30px;
+
+    font-size:56px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#16a34a;
+}
+
+/* Register Link */
+
+.register{
+    margin-top:60px;
+    font-size:44px;
+    color:#6b7280;
+}
+
+.register a{
+    color:#16a34a;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.register a:hover{
+    text-decoration:underline;
+}
+
+/* Responsive */
+
+@media(max-width:1050px){
+
+.container{
+    width:90%;
+    padding:40px;
+}
+
+}
