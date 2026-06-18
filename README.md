@@ -1,102 +1,37 @@
-# Farm2Home
+# 🌾 Krushi Setu
 
-Farm2Home is a full-stack e-commerce platform designed to connect farmers directly with consumers, eliminating intermediaries in the sale of vegetables, fruits, and other farm products. This project aims to empower farmers by allowing them to list and manage their products independently while providing consumers with fresh, locally sourced produce.
+Krushi Setu is an agriculture-based web platform that bridges the gap between farmers and buyers. The platform enables farmers to showcase and sell their crops directly to consumers and businesses, helping them receive fair prices without relying heavily on intermediaries.
 
-## Table of Contents
+## 🚀 Features
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Database Setup](#database-setup)
-- [Contributing](#contributing)
-- [License](#license)
+- 🌱 Direct Farmer-to-Buyer Connection
+- 💰 Transparent and Fair Pricing
+- 📦 Crop Listing and Management
+- 🔍 Easy Product Search and Browsing
+- 📱 Responsive and User-Friendly Interface
+- 🚜 Promoting Digital Transformation in Agriculture
 
-## Features
+## 🛠️ Technologies Used
 
-### For Customers:
-- Browse a wide range of farm products
-- Add items to cart, modify quantities, or remove items
-- Secure checkout process
-- Multiple payment options
-- Provide feedback on purchases
-- View order history and status
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
 
-### For Farmers:
-- Secure login system
-- Personalized dashboard to manage products and orders
-- Add, edit, or remove product listings
-- Update delivery status for orders
-- View earnings and sales statistics
+## 🎯 Objective
 
-## Technologies Used
+To empower farmers by providing a digital platform that facilitates transparent and efficient trading of agricultural products while minimizing the role of middlemen.
 
-- Frontend:
-  - HTML5
-  - CSS3
-  - JavaScript
-  - Bootstrap 4
-- Backend:
-  - PHP
-- Database:
-  - MySQL
-- Version Control:
-  - Git
+## 📸 Screenshots
 
-## Installation
+<img width="950" height="445" alt="Screenshot 2026-06-18 140814" src="https://github.com/user-attachments/assets/27d848a9-ae02-4228-b91e-83cb206c5c61" />
 
-1. Clone the repository: ``` https://github.com/whitebeard10/farm2home.git ```
-2. Set up a local server environment (e.g., XAMPP, WAMP, or MAMP).
+<img width="950" height="443" alt="Screenshot 2026-06-18 140940" src="https://github.com/user-attachments/assets/2b98e193-e2ab-4c4e-bfce-2ea45238efd0" />
 
-3. Move the project files to your server's web directory.
 
-4. Configure the database connection in `config.php` (see [Database Setup](#database-setup)).
+<img width="947" height="442" alt="Screenshot 2026-06-18 141010" src="https://github.com/user-attachments/assets/e9c2ff09-02c3-414f-a3f5-a8a03268e9b6" />
 
-5. Import the provided SQL file to set up the database schema.
 
-## Usage
 
-1. Start your local server and ensure MySQL is running.
-
-2. Open a web browser and navigate to `http://localhost/farm2home` (adjust the URL if your local setup differs).
-
-3. For customer use, browse products, add to cart, and proceed to checkout.
-
-4. For farmer access, use the login page with provided credentials to access the farmer dashboard.
-
-## Database Setup
-
-1. Create a new MySQL database named `login_register` and `cart_system`.
-
-2. Import the `login_register.sql` and `cart_system.sql` files given in util folder into your newly created database.
-
-3. Update the `cartSystemAccess.php` and `configure.php` file with your database credentials.
-
-4. You are good to go.
-
-## Contributing
-
-Contributions to Farm2Home are welcome and appreciated! Here's how you can contribute:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some YourFeature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
-
-Please ensure your code adheres to the project's coding standards and include tests for new features when possible.
-
-## License
-
-Farm2Home is open source software licensed under the MIT License. This means:
-
-- You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software.
-- The software is provided "as is", without warranty of any kind, express or implied.
-- In no event shall the authors be liable for any claim, damages or other liability arising from the use of the software.
-
-For the full license text, please see the [LICENSE](LICENSE) file in the repository.
-
----
-
-For more information or to report issues, please visit the [project repository](https://github.com/whitebeard10/farm2home.git) or reach out to me [LinkedIN](https://www.linkedin.com/in/avinash-chhetri/).
-   
+## 👨‍💻 Author
+- lakita ingole
