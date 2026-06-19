@@ -53,7 +53,7 @@
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <strong><?php if (isset($_SESSION['message'])) {
   echo $_SESSION['message'];
-} unset($_SESSION['showAlert']); ?></strong>
+} unset($_SESSION['message']); ?></strong>
         </div>
         <div class="table-responsive mt-2">
           <table class="table table-bordered table-striped text-center">
@@ -134,7 +134,6 @@
       var pid = $el.find(".pid").val();
       var pprice = $el.find(".pprice").val();
       var qty = $el.find(".itemQty").val();
-      location.reload(true);
       $.ajax({
         url: 'action.php',
         method: 'post',
@@ -146,6 +145,7 @@
         },
         success: function(response) {
           console.log(response);
+          location.reload(true);
         }
       });
     });
