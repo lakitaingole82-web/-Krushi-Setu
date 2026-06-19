@@ -79,26 +79,29 @@
               <?php
                 require 'cartSystemAccess.php';
                 $stmt = $conn->prepare('SELECT * FROM cart');
+                if (!$stmt) {
+                  die('Database error: ' . $conn->error);
+                }
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $grand_total = 0;
                 while ($row = $result->fetch_assoc()):
               ?>
               <tr>
-                <td><?= $row['id'] ?></td>
-                <input type="hidden" class="pid" value="<?= $row['id'] ?>">
-                <td><img src="<?= $row['product_image'] ?>" width="50"></td>
-                <td><?= $row['product_name'] ?></td>
+                <td><?= htmlspecialchars($row['id']) ?></td>
+                <input type="hidden" class="pid" value="<?= htmlspecialchars($row['id']) ?>">
+                <td><img src="<?= htmlspecialchars($row['product_image']) ?>" width="50" alt="<?= htmlspecialchars($row['product_name']) ?>"></td>
+                <td><?= htmlspecialchars($row['product_name']) ?></td>
                 <td>
                   <i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?= number_format($row['product_price'],2); ?>
                 </td>
-                <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
+                <input type="hidden" class="pprice" value="<?= htmlspecialchars($row['product_price']) ?>">
                 <td>
-                  <input type="number" class="form-control itemQty" value="<?= $row['qty'] ?>" style="width:75px;">
+                  <input type="number" class="form-control itemQty" value="<?= htmlspecialchars($row['qty']) ?>" min="1" style="width:75px;">
                 </td>
                 <td><i class="fas fa-rupee-sign"></i>&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
                 <td>
-                  <a href="action.php?remove=<?= $row['id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
+                  <a href="action.php?remove=<?= htmlspecialchars($row['id']) ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fas fa-trash-alt"></i></a>
                 </td>
               </tr>
               <?php $grand_total += $row['total_price']; ?>
@@ -129,11 +132,15 @@
 
     // Change the item quantity
     $(".itemQty").on('change', function() {
+      var qty = $(this).val();
+      if (qty < 1) {
+        $(this).val(1);
+        return;
+      }
+      
       var $el = $(this).closest('tr');
-
       var pid = $el.find(".pid").val();
       var pprice = $el.find(".pprice").val();
-      var qty = $el.find(".itemQty").val();
       $.ajax({
         url: 'action.php',
         method: 'post',
@@ -145,6 +152,10 @@
         },
         success: function(response) {
           console.log(response);
+          location.reload(true);
+        },
+        error: function() {
+          alert('Error updating quantity.');
           location.reload(true);
         }
       });
