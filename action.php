@@ -3,7 +3,7 @@
 	require 'cartSystemAccess.php';
 
 	// Add products into the cart table
-	if (isset($_POST['pid'])) {
+	if (isset($_POST['pid']) && isset($_POST['pname'])) {
 	  $pid = $_POST['pid'];
 	  $pname = $_POST['pname'];
 	  $pprice = $_POST['pprice'];
