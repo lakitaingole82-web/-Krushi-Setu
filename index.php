@@ -115,8 +115,8 @@
             <form action="" class="form-submit">
               <div class="form-row">
                 <div class="col">
-                  <label for="quantity">Quantity:</label>
-                  <input type="number" id="quantity" class="form-control pqty" value="<?= $row['product_qty'] ?>">
+                  <label>Quantity:</label>
+                  <input type="number" class="form-control pqty" name="pqty" min="1" value="1">
                 </div>
               </div>
               <input type="hidden" class="pid" value="<?= $row['id'] ?>">
