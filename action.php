@@ -37,7 +37,7 @@
 	}
 
 	// Get no.of items available in the cart table
-	if (isset($_GET['cartItem']) && isset($_GET['cartItem']) == 'cart_item') {
+	if (isset($_GET['cartItem']) && $_GET['cartItem'] == 'cart_item') {
 	  $stmt = $conn->prepare('SELECT * FROM cart');
 	  $stmt->execute();
 	  $stmt->store_result();
@@ -82,7 +82,7 @@
 	}
 
 	// Checkout and save customer info in the orders table
-	if (isset($_POST['action']) && isset($_POST['action']) == 'order') {
+	if (isset($_POST['action']) && $_POST['action'] == 'order') {
 	  $name = $_POST['name'];
 	  $email = $_POST['email'];
 	  $phone = $_POST['phone'];
