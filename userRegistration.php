@@ -1,33 +1,39 @@
-<?php include 'configure.php';
+<?php
+include 'configure.php';
 
-if(isset($_POST['rsubmit'])){
-  $rname = mysqli_real_escape_string($conn, $_POST['rname']);
-  $rmail = mysqli_real_escape_string($conn, $_POST['rmail']);
-  $rpass = $_POST['rpass'];
-  $rcpass = $_POST['rcpass'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rsubmit'])) {
+  $rname = trim($_POST['rname'] ?? '');
+  $rmail = trim($_POST['rmail'] ?? '');
+  $rpass = $_POST['rpass'] ?? '';
+  $rcpass = $_POST['rcpass'] ?? '';
 
-  if($rpass == $rcpass){
-    
-    // Prepare the SQL statement to prevent SQL injection
-    $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $rname, $rmail, $rpass);
+  if ($rname === '' || $rmail === '' || $rpass === '' || $rcpass === '') {
+    echo "<script>alert('Please fill in all fields.'); window.history.back();</script>";
+    exit();
+  }
 
-    // Execute the statement
+  if ($rpass !== $rcpass) {
+    echo "<script>alert('Passwords do not match.'); window.history.back();</script>";
+    exit();
+  }
+
+  $hashedPassword = password_hash($rpass, PASSWORD_DEFAULT);
+
+  $stmt = $conn->prepare('INSERT INTO users (username, email, password) VALUES (?, ?, ?)');
+  if ($stmt) {
+    $stmt->bind_param('sss', $rname, $rmail, $hashedPassword);
     if ($stmt->execute()) {
-      // Use JavaScript to show alert and redirect
       echo "<script>
               alert('You are now registered.');
               window.location.href='../LoginIndex.html';
             </script>";
-      exit(); // Ensure no further code is executed after redirection
-    } else {
-      echo "<script>alert('Registration failed. Please try again.')</script>";
+      $stmt->close();
+      exit();
     }
-
-    // Close the statement
     $stmt->close();
-  } else {
-    echo "<script>alert('Password not matched!')</script>";
   }
+
+  echo "<script>alert('Registration failed. Please try again.'); window.history.back();</script>";
+  exit();
 }
 ?>
